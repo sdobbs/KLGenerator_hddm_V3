@@ -1,12 +1,13 @@
 #include "JGenBeamEnergy.h"
+#include <TSystem.h>
 
 const double kaonmass=0.49761;
 const double neutronmass=0.93957;
 const double photonmass=0.0;
 //const string KaonFile="BeamProfile_kaons.root";
-const string KaonFile="BeamProfile_kaons_2024.root";
-const string NeutronFile="BeamProfile_neutrons.root";
-const string PhotonFile="BeamProfile_photons.root";
+const string KaonFile=Form("%s/BeamProfile_kaons_2024.root",gSystem->Getenv("KLGEN"));
+const string NeutronFile=Form("%s/BeamProfile_neutrons.root",gSystem->Getenv("KLGEN"));
+const string PhotonFile=Form("%s/BeamProfile_photons.root",gSystem->Getenv("KLGEN"));
 const string KaonHistname="h24E_2";
 const string NeutronHistname="BeamProfile";
 const string PhotonHistname="BeamProfile";

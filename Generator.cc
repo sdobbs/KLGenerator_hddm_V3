@@ -27,6 +27,7 @@
 #include "HDDM/hddm_s.hpp"
 #include "particleType.h"
 #include "PrintEvents.h"
+#include <TSystem.h>
 
 #define mass_protPDG 0.93827201
 #define mass_neutPDG 0.939565378
@@ -93,9 +94,9 @@ const double SPEED_OF_LIGHT_CM_NS = 29.9792;   // cm/ns
 using namespace std;
 void PrintUsage (char *processName);
 int main (int argc, char **argv){
-    
-    gROOT->ProcessLine(".L Loader.C+");
-    
+  
+  gROOT->ProcessLine(Form(".L %s/Loader.C+", gSystem->Getenv("KLGEN")));
+		     
     extern char *optarg; //to be used by getopt to return optionargument
     char *ProgName = argv[0];
     char *ROOTFILE = NULL;
@@ -103,10 +104,10 @@ int main (int argc, char **argv){
     char *OUTTYPE = NULL;
     char *OBS = NULL;
     int WillBeRootOutput = 0;
-	int PrintOutput = 0;
+    int PrintOutput = 0;
     int c;
     int max = 1;
-    TString StLocation="./XSections/";
+    TString StLocation=Form("%s/XSections/",gSystem->Getenv("KLGEN"));
     TString StExtension=".root";
     TString StFile, StName;
     
@@ -259,7 +260,7 @@ int main (int argc, char **argv){
         case sol2:
             cout<<"Generating sol2"<<endl;
             usesol=1;
-            in1.open("SOL2--KLn-KpXim.dat");
+            in1.open(Form("%s/SOL2--KLn-KpXim.dat",gSystem->Getenv("KLGEN")));
             SolXS = new TGraph2D();
             SolPY = new TGraph2D();
             SolXS->SetName("Sol2_XS");
@@ -281,7 +282,7 @@ int main (int argc, char **argv){
         case sol4:
             cout<<"Generating sol4"<<endl;
             usesol=1;
-            in1.open("SOL4--KLn-KpXim.dat");
+            in1.open(Form("%s/SOL4--KLn-KpXim.dat",gSystem->Getenv("KLGEN")));
             SolXS = new TGraph2D();
             SolPY = new TGraph2D();
             SolXS->SetName("Sol2_XS");
