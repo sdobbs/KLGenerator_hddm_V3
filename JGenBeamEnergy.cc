@@ -5,10 +5,10 @@ const double kaonmass=0.49761;
 const double neutronmass=0.93957;
 const double photonmass=0.0;
 //const string KaonFile="BeamProfile_kaons.root";
-const string KaonFile=Form("%s/BeamProfile_kaons_2024.root",gSystem->Getenv("KLGEN"));
+const string KaonFile=Form("%s/BeamProfile_kaons_2026.root",gSystem->Getenv("KLGEN"));
 const string NeutronFile=Form("%s/BeamProfile_neutrons.root",gSystem->Getenv("KLGEN"));
 const string PhotonFile=Form("%s/BeamProfile_photons.root",gSystem->Getenv("KLGEN"));
-const string KaonHistname="h24E_2";
+const string KaonHistname="h24E_3";
 const string NeutronHistname="BeamProfile";
 const string PhotonHistname="BeamProfile";
 
